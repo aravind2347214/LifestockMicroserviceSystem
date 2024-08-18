@@ -1,0 +1,39 @@
+version: '3.7'
+services:
+  animal-service:
+    build:
+      context: .
+      dockerfile: Dockerfile-animal
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/animal
+  schedule-service:
+    build:
+      context: .
+      dockerfile: Dockerfile-feeding
+    ports:
+      - "3002:3002"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/schedule
+  health-service:
+    build:
+      context: .
+      dockerfile: Dockerfile-health
+    ports:
+      - "3003:3003"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/health
+  mongo:
+    image: mongo:4.2
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
