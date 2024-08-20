@@ -1,7 +1,7 @@
 # Dockerfile for Animal Service
-FROM node:14
+FROM node:alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app 
 
 COPY package*.json ./
 
@@ -11,4 +11,4 @@ COPY . .
 
 EXPOSE 3001
 
-CMD [ "node", "animalService.js" ]
+CMD [ "node", "server.js" ]

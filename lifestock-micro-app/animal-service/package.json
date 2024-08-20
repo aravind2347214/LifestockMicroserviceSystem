@@ -1,11 +1,11 @@
 {
   "name": "animal-service",
   "version": "1.0.0",
-  "main": "animalService.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "node animalService.js",
-    "dev": "nodemon animalService.js"
+    "serve": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",

@@ -1,7 +1,7 @@
 # Dockerfile for Health Monitoring Service
-FROM node:14
+FROM node:alpine
 
-WORKDIR /usr/src/app
+WORKDIR /server
 
 COPY package*.json ./
 
@@ -9,6 +9,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3003
+EXPOSE 3002
 
-CMD [ "node", "healthService.js" ]
+CMD [ "npx","nodemon", "server.js" ]

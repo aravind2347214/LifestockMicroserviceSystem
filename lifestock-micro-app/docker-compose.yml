@@ -3,33 +3,33 @@ services:
   animal-service:
     build:
       context: .
-      dockerfile: Dockerfile-animal
+      dockerfile: Dockerfile
     ports:
       - "3001:3001"
     depends_on:
       - mongo
     environment:
-      MONGO_URI: mongodb://mongo:27017/animal
+      MONGO_URI: mongodb://mongo:27017/lifestock
   schedule-service:
     build:
       context: .
-      dockerfile: Dockerfile-feeding
+      dockerfile: Dockerfile
     ports:
       - "3002:3002"
     depends_on:
       - mongo
     environment:
-      MONGO_URI: mongodb://mongo:27017/schedule
+      MONGO_URI: mongodb://mongo:27017/lifestock
   health-service:
     build:
       context: .
-      dockerfile: Dockerfile-health
+      dockerfile: Dockerfile
     ports:
       - "3003:3003"
     depends_on:
       - mongo
     environment:
-      MONGO_URI: mongodb://mongo:27017/health
+      MONGO_URI: mongodb://mongo:27017/lifestock
   mongo:
     image: mongo:4.2
     volumes:

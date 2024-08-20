@@ -1,7 +1,7 @@
 # Dockerfile for Feeding Schedule Service
-FROM node:14
+FROM node:alpine
 
-WORKDIR /usr/src/app
+WORKDIR /server
 
 COPY package*.json ./
 
@@ -9,6 +9,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3002
+EXPOSE 3003
 
-CMD [ "node", "scheduleService.js" ]
+CMD [ "node", "server.js" ]
